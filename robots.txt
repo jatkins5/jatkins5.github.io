@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: jatkins5.github.io/sitemap.xml
+Sitemap: https://jatkins5.github.io/sitemap.xml
