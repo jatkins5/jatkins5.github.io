@@ -91,6 +91,20 @@ body {
     color: #333;
 }
 
+.profile .description a {
+    color: #111;
+    text-decoration: none;
+    background: linear-gradient(#f4f1e8, #f4f1e8), linear-gradient(#f4f1e8, #f4f1e8), linear-gradient(#333, #333);
+    background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    text-shadow: 0.03em 0 #f4f1e8, -0.03em 0 #f4f1e8, 0 0.03em #f4f1e8, 0 -0.03em #f4f1e8, 0.06em 0 #f4f1e8, -0.06em 0 #f4f1e8, 0.09em 0 #f4f1e8, -0.09em 0 #f4f1e8, 0.12em 0 #f4f1e8, -0.12em 0 #f4f1e8, 0.15em 0 #f4f1e8, -0.15em 0 #f4f1e8;
+    background-position: 0% 93%, 100% 93%, 0% 93%;
+}
+
+.profile .description a:hover {
+    color: #000;
+}
+
 .profile-links {
     margin-top: 1rem;
     text-align: left;
@@ -283,6 +297,17 @@ body {
     font-size: 0.9rem;
     color: #999;
     margin: 0;
+}
+
+.page-footer a {
+    color: #666;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.page-footer a:hover {
+    color: #333;
+    border-bottom-color: #999;
 }
 
 @media (max-width: 768px) {
