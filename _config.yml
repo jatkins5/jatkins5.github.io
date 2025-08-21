@@ -9,7 +9,7 @@ last_name: Atkins
 email: jeremy_atkins@brown.edu
 display_email: jeremy_atkins (at) brown.edu
 description: Software engineer interested in applying technology to unsolved scientific problems
-sidebar_description: Masters student in physics at Brown. I'm interested in applying machine learning to problems in physics and astronomy, especially cosmological datasets. I am also a software engineer at <a href="https://lido.app">Lido</a>.
+sidebar_description: <p>Hello! I'm a Masters student in physics at Brown. I'm interested in applying machine learning to problems in physics and astronomy, especially cosmological datasets. I am also a software engineer at <a href="https://lido.app">Lido</a>.</p><p>I completed my undergrad studies at the University of Rochester in Physics & Astronomy and Mathematics, where I worked with Professor <a href="https://www.mikinakajima.com/">Miki Nakajima</a> on simulations of protolunar disks.</p>
 footer_text: brought to you by <a href="https://jekyllrb.com/">jekyll</a>, <a href="https://edwardtufte.github.io/tufte-css/">tufte</a>, <a href="https://claude.ai">claude</a>, and me!
 keywords:
 lang: en

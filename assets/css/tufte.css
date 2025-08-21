@@ -91,6 +91,17 @@ body {
     color: #333;
 }
 
+.profile .description p {
+    text-align: left;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.profile .description p:last-child {
+    margin-bottom: 0;
+}
+
 .profile .description a {
     color: #111;
     text-decoration: none;
