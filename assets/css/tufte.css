@@ -272,6 +272,19 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.page-footer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.page-footer p {
+    font-size: 0.9rem;
+    color: #999;
+    margin: 0;
+}
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
