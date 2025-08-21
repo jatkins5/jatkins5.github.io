@@ -1,10 +1,8 @@
 ---
 layout: post
 title: "The Limited Role of the Streaming Instability during Moon and Exomoon Formation"
-date: 2024-01-01
+date: 2024-06-01
 ---
-
-## The Limited Role of the Streaming Instability during Moon and Exomoon Formation
 
 *Miki Nakajima, Jeremy L. Atkins, Jacob B. Simon, Alice C. Quillen*  
 *The Planetary Science Journal, Volume 5, Number 6 (2024)*
