@@ -9,7 +9,7 @@ layout: none
     <title>{% if site.first_name %}{{ site.first_name }} {% if site.middle_name %}{{ site.middle_name }} {% endif %}{{ site.last_name }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ site.description | strip_html | strip_newlines | truncate: 155 }}">
     <link rel="stylesheet" href="{{ '/assets/css/tufte.css' | relative_url }}">
-    {% if site.icon %}<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{{ site.icon }}</text></svg>">{% endif %}
+    <link rel="icon" href="data:,"
 </head>
 <body>
     <div class="container">
