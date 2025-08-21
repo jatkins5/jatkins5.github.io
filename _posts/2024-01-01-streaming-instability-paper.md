@@ -25,4 +25,4 @@ Using detailed hydrodynamic simulations, we found that the conditions in protolu
 
 Our results suggest that the less-energetic collision models, i.e. those that produce vapor-poor disks, are thus much more likely to create disks that successfully spawn large Moons. This has important implications for understanding not just our own Moon, but also the diverse satellite systems we observe around gas giants and the potential moons of exoplanets: since impacts with planets much larger than Earth are likely to produce vapor-rich disks, it's unlikely that we will find large moons around such planets. In other words, we're more likely to find large Moons around "small" planets, like Earth.
 
-[Read the paper](https://iopscience.iop.org/article/10.3847/PSJ/ad4863) | [PDF]({{ '/assets/pdf/Nakajima_2024_Planet._Sci._J._5_145.pdf' | relative_url }})
+[Read the paper on PSJ](https://iopscience.iop.org/article/10.3847/PSJ/ad4863), or download the [PDF]({{ '/assets/pdf/Nakajima_2024_Planet._Sci._J._5_145.pdf' | relative_url }})!
