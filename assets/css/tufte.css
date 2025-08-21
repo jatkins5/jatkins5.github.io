@@ -222,6 +222,7 @@ body {
 .post-block a {
     color: #111;
     text-decoration: none;
+    font-size: 1.3rem;
     background: linear-gradient(#f4f1e8, #f4f1e8), linear-gradient(#f4f1e8, #f4f1e8), linear-gradient(#333, #333);
     background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
     background-repeat: no-repeat, no-repeat, repeat-x;
@@ -284,6 +285,46 @@ body {
     font-style: italic;
     margin-top: -1rem;
     margin-bottom: 1.5rem;
+}
+
+.publication-header {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.publication-header.clickable {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.publication-header.clickable:hover {
+    opacity: 0.9;
+}
+
+.publication-image {
+    width: 200px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.publication-info {
+    flex: 1;
+}
+
+.publication-info p {
+    margin-bottom: 0.5rem;
+}
+
+.publication-info p:first-child {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.publication-info p:last-child {
+    font-size: 1.1rem;
+    color: #666;
 }
 
 .page-footer {
