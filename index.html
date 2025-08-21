@@ -1,0 +1,36 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if site.first_name %}{{ site.first_name }} {% if site.middle_name %}{{ site.middle_name }} {% endif %}{{ site.last_name }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ site.description | strip_html | strip_newlines | truncate: 155 }}">
+    <link rel="stylesheet" href="{{ '/assets/css/tufte.css' | relative_url }}">
+    {% if site.icon %}<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{{ site.icon }}</text></svg>">{% endif %}
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="{{ '/assets/img/prof_pic.jpg' | relative_url }}" alt="{{ site.first_name }} {{ site.last_name }}">
+                <h1>{{ site.first_name }} {% if site.middle_name %}{{ site.middle_name }} {% endif %}{{ site.last_name }}</h1>
+                <p class="description">{{ site.sidebar_description | default: "Software engineer interested in applying technology to unsolved scientific problems, especially in physics & astronomy." }}</p>
+            </div>
+        </aside>
+        
+        <main class="content">
+            {% for post in site.posts %}
+            <article class="post-block">
+                {{ post.content }}
+            </article>
+            {% if forloop.last == false %}
+            <hr class="post-separator">
+            {% endif %}
+            {% endfor %}
+        </main>
+    </div>
+</body>
+</html>

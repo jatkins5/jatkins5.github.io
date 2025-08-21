@@ -1,0 +1,262 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "et-book";
+    src: url("https://edwardtufte.github.io/tufte-css/et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot");
+    src: url("https://edwardtufte.github.io/tufte-css/et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot?#iefix") format("embedded-opentype"),
+         url("https://edwardtufte.github.io/tufte-css/et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"),
+         url("https://edwardtufte.github.io/tufte-css/et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "et-book";
+    src: url("https://edwardtufte.github.io/tufte-css/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
+    src: url("https://edwardtufte.github.io/tufte-css/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot?#iefix") format("embedded-opentype"),
+         url("https://edwardtufte.github.io/tufte-css/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"),
+         url("https://edwardtufte.github.io/tufte-css/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "et-book";
+    src: url("https://edwardtufte.github.io/tufte-css/et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot");
+    src: url("https://edwardtufte.github.io/tufte-css/et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot?#iefix") format("embedded-opentype"),
+         url("https://edwardtufte.github.io/tufte-css/et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"),
+         url("https://edwardtufte.github.io/tufte-css/et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    background-color: #f4f1e8;
+    color: #111;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    gap: 3rem;
+}
+
+.sidebar {
+    flex: 0 0 280px;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    border: 3px solid #111;
+}
+
+.profile h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.profile .description {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: left;
+    color: #333;
+}
+
+.content {
+    flex: 1;
+    max-width: 650px;
+}
+
+.post-block {
+    margin-bottom: 3rem;
+}
+
+.post-block h1 {
+    font-weight: 400;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.post-block h2 {
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 2.1rem;
+    margin-bottom: 1.4rem;
+    font-size: 1.7rem;
+    line-height: 1;
+}
+
+.post-block h3 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    line-height: 1;
+}
+
+.post-block p {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-bottom: 1.4rem;
+}
+
+.post-block p.subtitle {
+    font-style: italic;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    display: block;
+    line-height: 1;
+}
+
+.post-block blockquote {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-left: 2rem;
+    border-left: 3px solid #ddd;
+}
+
+.post-block ul,
+.post-block ol {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-left: 2rem;
+}
+
+.post-block li {
+    margin-bottom: 0.5rem;
+}
+
+.post-block pre {
+    font-size: 1rem;
+    overflow-x: auto;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 3px;
+    margin-bottom: 1.4rem;
+}
+
+.post-block code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.1rem;
+    background: #f9f9f9;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+}
+
+.post-block pre code {
+    background: transparent;
+    padding: 0;
+}
+
+.post-block a {
+    color: #111;
+    text-decoration: none;
+    background: linear-gradient(#f4f1e8, #f4f1e8), linear-gradient(#f4f1e8, #f4f1e8), linear-gradient(#333, #333);
+    background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    text-shadow: 0.03em 0 #f4f1e8, -0.03em 0 #f4f1e8, 0 0.03em #f4f1e8, 0 -0.03em #f4f1e8, 0.06em 0 #f4f1e8, -0.06em 0 #f4f1e8, 0.09em 0 #f4f1e8, -0.09em 0 #f4f1e8, 0.12em 0 #f4f1e8, -0.12em 0 #f4f1e8, 0.15em 0 #f4f1e8, -0.15em 0 #f4f1e8;
+    background-position: 0% 93%, 100% 93%, 0% 93%;
+}
+
+.post-block a:hover {
+    color: #000;
+}
+
+.post-separator {
+    border: none;
+    border-top: 1px solid #aaa;
+    margin: 3rem 0;
+    width: 100%;
+}
+
+.publication {
+    margin-bottom: 2rem;
+}
+
+.publication-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.publication-authors {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.publication-venue {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.publication-description {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.publication-links {
+    margin-top: 1rem;
+}
+
+.publication-links a {
+    margin-right: 1rem;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .sidebar {
+        position: static;
+        flex: none;
+        margin-bottom: 2rem;
+    }
+    
+    .content {
+        max-width: 100%;
+    }
+}

@@ -2,25 +2,34 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: blank # the website title (if blank, full name will be used instead)
+title: Jeremy L. Atkins
 first_name: Jeremy
 middle_name: L.
 last_name: Atkins
 email: jatkins5@u.rochester.edu
-description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords:  # add your own keywords or leave empty
-lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+description: Software engineer interested in applying technology to unsolved scientific problems
+sidebar_description: Software engineer interested in applying technology to unsolved scientific problems, especially in physics & astronomy.
+footer_text: 
+keywords:  
+lang: en
+icon: ⚛️
 
 url: https://jatkins5.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
-back_to_top: true # set to false to disable the back to top button
+back_to_top: false # set to false to disable the back to top button
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:name
 
 # -----------------------------------------------------------------------------
 # Theme
@@ -48,9 +57,9 @@ rss_icon: true
 
 navbar_fixed: false
 footer_fixed: false
-search_enabled: true
+search_enabled: false
 socials_in_search: false
-bib_search: true
+bib_search: false
 
 # Dimensions
 max_width: 930px
@@ -246,23 +255,7 @@ keep_files:
   - .nojekyll
 
 # Plug-ins
-plugins:
-  - jekyll-archives
-  - jekyll-email-protect
-  - jekyll-feed
-  - jekyll-get-json
-  - jekyll-imagemagick
-  - jekyll-jupyter-notebook
-  - jekyll-link-attributes
-  - jekyll-minifier
-  - jekyll-paginate-v2
-  - jekyll-regex-replace
-  - jekyll/scholar
-  - jekyll-sitemap
-  - jekyll-tabs
-  - jekyll-toc
-  - jekyll-twitter-plugin
-  - jemoji
+# Plugins removed - using minimal setup
 
 # Sitemap settings
 defaults:
@@ -287,19 +280,7 @@ jekyll-minifier:
 # Jekyll Archives
 # -----------------------------------------------------------------------------
 
-jekyll-archives:
-  enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
-  layouts:
-    year: archive-year
-    tag: archive-tag
-    category: archive-category
-  permalinks:
-    year: "/blog/:year/"
-    tag: "/blog/tag/:name/"
-    category: "/blog/category/:name/"
-
-display_tags: ["formatting", "images", "links", "math", "code", "blockquotes"] # these tags will be displayed on the front page of your blog
-display_categories: ["external-services"] # these categories will be displayed on the front page of your blog
+# Archives removed - using minimal setup
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
