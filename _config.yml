@@ -8,8 +8,8 @@ middle_name: L.
 last_name: Atkins
 email: jatkins5@u.rochester.edu
 description: Software engineer interested in applying technology to unsolved scientific problems
-sidebar_description: Software engineer interested in applying technology to unsolved scientific problems, especially in physics & astronomy.
-footer_text: brought to you by jekyll, tufte, claude, and me!
+sidebar_description: Masters student in physics at Brown. I'm interested in applying machine learning to problems in physics and astronomy, especially cosmological datasets. I am also a software engineer at <a href="https://lido.app">Lido</a>.
+footer_text: brought to you by <a href="https://jekyllrb.com/">jekyll</a>, <a href="https://edwardtufte.github.io/tufte-css/">tufte</a>, <a href="https://claude.ai">claude</a>, and me!
 keywords:  
 lang: en
 icon: ⚛️
