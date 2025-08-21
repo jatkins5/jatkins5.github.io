@@ -286,6 +286,46 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.publication-header {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.publication-header.clickable {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.publication-header.clickable:hover {
+    opacity: 0.9;
+}
+
+.publication-image {
+    width: 200px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.publication-info {
+    flex: 1;
+}
+
+.publication-info p {
+    margin-bottom: 0.5rem;
+}
+
+.publication-info p:first-child {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.publication-info p:last-child {
+    font-size: 1.1rem;
+    color: #666;
+}
+
 .page-footer {
     max-width: 1400px;
     margin: 0 auto;
