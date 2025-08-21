@@ -10,7 +10,7 @@ email: jatkins5@u.rochester.edu
 description: Software engineer interested in applying technology to unsolved scientific problems
 sidebar_description: Masters student in physics at Brown. I'm interested in applying machine learning to problems in physics and astronomy, especially cosmological datasets. I am also a software engineer at <a href="https://lido.app">Lido</a>.
 footer_text: brought to you by <a href="https://jekyllrb.com/">jekyll</a>, <a href="https://edwardtufte.github.io/tufte-css/">tufte</a>, <a href="https://claude.ai">claude</a>, and me!
-keywords:  
+keywords:
 lang: en
 icon: ⚛️
 
@@ -120,7 +120,7 @@ x_username: # your X handle
 youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: # your zotero username
 
-contact_note: 
+contact_note:
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -142,7 +142,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: # blog_name will be displayed in your blog page
-blog_description: 
+blog_description:
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
@@ -205,8 +205,7 @@ latest_posts:
 # Jekyll settings
 # -----------------------------------------------------------------------------
 
-# Markdown and syntax highlight
-markdown: kramdown
+# Markdown and syntax highlight - removed duplicate (already defined above)
 highlighter: rouge
 kramdown:
   input: GFM
@@ -469,7 +468,7 @@ third_party_libraries:
     integrity:
       js: "sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc="
     url:
-      js: https://cdn.jsdelivr.net/npm/imagesloaded@{{version}}/imagesloaded.pkgd.min.js
+      js: "https://cdn.jsdelivr.net/npm/imagesloaded@{{version}}/imagesloaded.pkgd.min.js"
     version: "5.0.0"
   img-comparison-slider:
     integrity:
