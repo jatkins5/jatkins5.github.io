@@ -125,6 +125,16 @@ body {
     color: #000;
 }
 
+.email-separator {
+    margin: 0 0.5rem;
+    color: #999;
+}
+
+.email {
+    font-size: 1rem;
+    color: #333;
+}
+
 .content {
     flex: 1;
     max-width: 650px;
