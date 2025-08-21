@@ -188,18 +188,8 @@ newsletter:
   # https://loops.so/docs/forms/custom-form
 
 # -----------------------------------------------------------------------------
-# Collections
+# Collections - removed duplicate (already defined above)
 # -----------------------------------------------------------------------------
-
-collections:
-  news:
-    defaults:
-      layout: post
-    output: false
-    permalink: /:collection/:title/
-  projects:
-    output: false
-    permalink: /:collection/:title/
 
 announcements:
   enabled: false
