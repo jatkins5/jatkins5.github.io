@@ -157,6 +157,7 @@ body {
     position: sticky;
     top: 10rem;
     height: fit-content;
+    margin-top: -8rem;
 }
 
 .orbit-animation canvas {
@@ -389,6 +390,8 @@ body {
     .container {
         flex-direction: column;
         padding: 1rem;
+        margin-left: 0;
+        margin: 0 auto;
     }
 
     .sidebar {
@@ -402,6 +405,13 @@ body {
     }
 
     .orbit-animation {
-        display: none;
+            position: static;
+        flex: none;
+        margin-top: -12rem;
+        margin-bottom: 10rem;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
