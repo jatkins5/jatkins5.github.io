@@ -191,7 +191,6 @@ class OrbitAnimation {
         button.style.justifyContent = 'center';
         button.style.fontFamily = 'et-book, serif';
         button.style.lineHeight = '1';
-        button.style.padding = '-2rem';
         button.style.opacity = '0';
         button.style.transition = 'opacity 0.3s ease, color 0.2s ease';
 
