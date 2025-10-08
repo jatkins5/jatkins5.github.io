@@ -1,8 +1,9 @@
 interface Planet {
     orbitRadius: number;
+    baseOrbitRadius: number;
+    targetOrbitRadius: number;
     angle: number;
     radius: number;
-    baseRadius: number;
     color: string;
     hovered: boolean;
 }
@@ -52,21 +53,23 @@ class OrbitAnimation {
             const centerX = this.canvas.width / 2;
             const centerY = this.canvas.height / 2;
 
+            // Calculate distance from center to mouse
+            const distanceFromCenter = Math.sqrt(
+                Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2)
+            );
+
             let hoveredAny = false;
             for (const planet of this.planets) {
-                const planetX = centerX + Math.cos(planet.angle) * planet.orbitRadius;
-                const planetY = centerY + Math.sin(planet.angle) * planet.orbitRadius;
-                const distance = Math.sqrt(
-                    Math.pow(mouseX - planetX, 2) + Math.pow(mouseY - planetY, 2)
-                );
+                // Check if mouse is close to the planet's orbit
+                const distanceFromOrbit = Math.abs(distanceFromCenter - planet.baseOrbitRadius);
 
-                if (distance < planet.baseRadius + 10) {
+                if (distanceFromOrbit < 15) {
                     planet.hovered = true;
-                    planet.radius = planet.baseRadius * 1.3;
+                    planet.targetOrbitRadius = planet.baseOrbitRadius * 0.95;
                     hoveredAny = true;
                 } else {
                     planet.hovered = false;
-                    planet.radius = planet.baseRadius;
+                    planet.targetOrbitRadius = planet.baseOrbitRadius;
                 }
             }
 
@@ -80,15 +83,16 @@ class OrbitAnimation {
             const centerX = this.canvas.width / 2;
             const centerY = this.canvas.height / 2;
 
+            // Calculate distance from center to mouse
+            const distanceFromCenter = Math.sqrt(
+                Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2)
+            );
+
             for (let i = this.planets.length - 1; i >= 0; i--) {
                 const planet = this.planets[i];
-                const planetX = centerX + Math.cos(planet.angle) * planet.orbitRadius;
-                const planetY = centerY + Math.sin(planet.angle) * planet.orbitRadius;
-                const distance = Math.sqrt(
-                    Math.pow(mouseX - planetX, 2) + Math.pow(mouseY - planetY, 2)
-                );
+                const distanceFromOrbit = Math.abs(distanceFromCenter - planet.baseOrbitRadius);
 
-                if (distance < planet.radius) {
+                if (distanceFromOrbit < 15) {
                     this.planets.splice(i, 1);
                     break;
                 }
@@ -98,7 +102,7 @@ class OrbitAnimation {
         this.canvas.addEventListener('mouseleave', () => {
             for (const planet of this.planets) {
                 planet.hovered = false;
-                planet.radius = planet.baseRadius;
+                planet.targetOrbitRadius = planet.baseOrbitRadius;
             }
             this.canvas.style.cursor = 'default';
         });
@@ -167,15 +171,16 @@ class OrbitAnimation {
 
     private addPlanet(): void {
         const planetColors = ['#6a9fb5', '#b58a6a', '#8ab56a', '#b56a8a', '#6ab5b5', '#b5b56a'];
-        const orbitRadius = this.planets.length === 0
+        const baseOrbitRadius = this.planets.length === 0
           ? this.baseOrbitRadius
-          : Math.max(...this.planets.map(p => p.orbitRadius)) + this.orbitSpacing;
-        const baseRadius = 8 + Math.random() * 4;
+          : Math.max(...this.planets.map(p => p.baseOrbitRadius)) + this.orbitSpacing;
+        const radius = 8 + Math.random() * 4;
         const planet: Planet = {
-            orbitRadius: orbitRadius,
+            orbitRadius: baseOrbitRadius,
+            baseOrbitRadius: baseOrbitRadius,
+            targetOrbitRadius: baseOrbitRadius,
             angle: Math.random() * Math.PI * 2,
-            radius: baseRadius,
-            baseRadius: baseRadius,
+            radius: radius,
             color: planetColors[this.planets.length % planetColors.length],
             hovered: false
         };
@@ -194,8 +199,12 @@ class OrbitAnimation {
 
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // Draw orbit paths
+        // Draw orbit paths and update planet positions
         for (const planet of this.planets) {
+            // Smoothly interpolate orbit radius
+            const lerpFactor = 0.15;
+            planet.orbitRadius += (planet.targetOrbitRadius - planet.orbitRadius) * lerpFactor;
+
             this.ctx.beginPath();
             this.ctx.arc(centerX, centerY, planet.orbitRadius, 0, Math.PI * 2);
             this.ctx.strokeStyle = '#d4cfc0';
