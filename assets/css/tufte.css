@@ -52,10 +52,11 @@ body {
 
 .container {
     display: flex;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
+    margin-left: 10rem;
     padding: 2rem;
-    gap: 3rem;
+    gap: 5rem;
 }
 
 .sidebar {
@@ -149,6 +150,18 @@ body {
 .content {
     flex: 1;
     max-width: 650px;
+}
+
+.orbit-animation {
+    flex: 0 0 400px;
+    position: sticky;
+    top: 10rem;
+    height: fit-content;
+}
+
+.orbit-animation canvas {
+    display: block;
+    background-color: transparent;
 }
 
 .post-block {
@@ -377,14 +390,18 @@ body {
         flex-direction: column;
         padding: 1rem;
     }
-    
+
     .sidebar {
         position: static;
         flex: none;
         margin-bottom: 2rem;
     }
-    
+
     .content {
         max-width: 100%;
+    }
+
+    .orbit-animation {
+        display: none;
     }
 }
