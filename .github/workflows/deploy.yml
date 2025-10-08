@@ -77,6 +77,14 @@ jobs:
         with:
           python-version: "3.13"
           cache: "pip" # caching pip dependencies
+      - name: Setup Node.js 📦
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dependencies 📥
+        run: yarn install --frozen-lockfile
+      - name: Compile TypeScript ⚙️
+        run: yarn tsc assets/js/orbit.ts --target ES2015 --outDir assets/js
       - name: Update _config.yml ⚙️
         uses: fjogeleit/yaml-update-action@main
         with:

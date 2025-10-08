@@ -38,9 +38,14 @@ layout: none
             {% endif %}
             {% endfor %}
         </main>
+
+        <aside class="orbit-animation">
+            <canvas id="orbit-canvas"></canvas>
+        </aside>
     </div>
     <footer class="page-footer">
         <p>{{ site.footer_text }}</p>
     </footer>
+    <script src="{{ '/assets/js/orbit.js' | relative_url }}"></script>
 </body>
 </html>
