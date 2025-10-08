@@ -18,6 +18,10 @@ class OrbitAnimation {
     private animationId: number | null = null;
     private baseOrbitRadius: number = 80;
     private orbitSpacing: number = 40;
+    private draggingPlanet: Planet | null = null;
+    private isDragging: boolean = false;
+    private dragStartRadius: number = 0;
+    private hasMoved: boolean = false;
 
     constructor(canvasId: string) {
         this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
@@ -46,6 +50,31 @@ class OrbitAnimation {
     private setupCanvasInteraction(): void {
         this.canvas.style.cursor = 'default';
 
+        this.canvas.addEventListener('mousedown', (e: MouseEvent) => {
+            const rect = this.canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            const centerX = this.canvas.width / 2;
+            const centerY = this.canvas.height / 2;
+
+            const distanceFromCenter = Math.sqrt(
+                Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2)
+            );
+
+            // Check if clicking on any orbit to start dragging
+            for (const planet of this.planets) {
+                const distanceFromOrbit = Math.abs(distanceFromCenter - planet.baseOrbitRadius);
+                if (distanceFromOrbit < 15) {
+                    this.isDragging = true;
+                    this.draggingPlanet = planet;
+                    this.dragStartRadius = planet.baseOrbitRadius;
+                    this.hasMoved = false;
+                    e.preventDefault();
+                    return;
+                }
+            }
+        });
+
         this.canvas.addEventListener('mousemove', (e: MouseEvent) => {
             const rect = this.canvas.getBoundingClientRect();
             const mouseX = e.clientX - rect.left;
@@ -58,25 +87,57 @@ class OrbitAnimation {
                 Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2)
             );
 
-            let hoveredAny = false;
-            for (const planet of this.planets) {
-                // Check if mouse is close to the planet's orbit
-                const distanceFromOrbit = Math.abs(distanceFromCenter - planet.baseOrbitRadius);
+            if (this.isDragging && this.draggingPlanet) {
+                // Update the orbit radius while dragging
+                const minRadius = this.starRadius + 20; // Minimum distance from star
+                const maxRadius = (this.canvas.width / 2) - this.draggingPlanet.radius - 10; // Keep planet inside canvas
+                const newRadius = Math.max(minRadius, Math.min(maxRadius, distanceFromCenter));
 
-                if (distanceFromOrbit < 15) {
-                    planet.hovered = true;
-                    planet.targetOrbitRadius = planet.baseOrbitRadius * 0.95;
-                    hoveredAny = true;
-                } else {
-                    planet.hovered = false;
-                    planet.targetOrbitRadius = planet.baseOrbitRadius;
+                // Check if we've moved significantly
+                if (Math.abs(newRadius - this.dragStartRadius) > 5) {
+                    this.hasMoved = true;
                 }
-            }
 
-            this.canvas.style.cursor = hoveredAny ? 'pointer' : 'default';
+                this.draggingPlanet.baseOrbitRadius = newRadius;
+                this.draggingPlanet.targetOrbitRadius = newRadius;
+                this.draggingPlanet.orbitRadius = newRadius;
+                this.canvas.style.cursor = 'grabbing';
+            } else {
+                // Normal hover behavior
+                let hoveredAny = false;
+                for (const planet of this.planets) {
+                    // Check if mouse is close to the planet's orbit
+                    const distanceFromOrbit = Math.abs(distanceFromCenter - planet.baseOrbitRadius);
+
+                    if (distanceFromOrbit < 15) {
+                        planet.hovered = true;
+                        planet.targetOrbitRadius = planet.baseOrbitRadius * 0.95;
+                        hoveredAny = true;
+                    } else {
+                        planet.hovered = false;
+                        planet.targetOrbitRadius = planet.baseOrbitRadius;
+                    }
+                }
+
+                this.canvas.style.cursor = hoveredAny ? 'grab' : 'default';
+            }
+        });
+
+        this.canvas.addEventListener('mouseup', (e: MouseEvent) => {
+            if (this.isDragging && this.draggingPlanet) {
+                this.isDragging = false;
+                this.draggingPlanet = null;
+                this.canvas.style.cursor = 'default';
+            }
         });
 
         this.canvas.addEventListener('click', (e: MouseEvent) => {
+            // Only delete if we didn't actually drag
+            if (this.hasMoved) {
+                this.hasMoved = false;
+                return;
+            }
+
             const rect = this.canvas.getBoundingClientRect();
             const mouseX = e.clientX - rect.left;
             const mouseY = e.clientY - rect.top;
@@ -100,6 +161,9 @@ class OrbitAnimation {
         });
 
         this.canvas.addEventListener('mouseleave', () => {
+            this.isDragging = false;
+            this.draggingPlanet = null;
+            this.hasMoved = false;
             for (const planet of this.planets) {
                 planet.hovered = false;
                 planet.targetOrbitRadius = planet.baseOrbitRadius;
@@ -188,7 +252,7 @@ class OrbitAnimation {
     }
 
     private setupCanvas(): void {
-        const size = 400;
+        const size = 500;
         this.canvas.width = size;
         this.canvas.height = size;
     }

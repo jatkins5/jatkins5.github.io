@@ -56,7 +56,8 @@ body {
     margin: 0 auto;
     margin-left: 10rem;
     padding: 2rem;
-    gap: 5rem;
+    gap: 3rem;
+    position: relative;
 }
 
 .sidebar {
@@ -150,14 +151,28 @@ body {
 .content {
     flex: 1;
     max-width: 650px;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.content * {
+    pointer-events: auto;
 }
 
 .orbit-animation {
-    flex: 0 0 400px;
-    position: sticky;
-    top: 10rem;
-    height: fit-content;
-    margin-top: -8rem;
+    position: absolute;
+    right: 5rem;
+    top: 2rem;
+    width: 500px;
+    height: 500px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.orbit-animation canvas,
+.orbit-animation button {
+    pointer-events: auto;
 }
 
 .orbit-animation canvas {
@@ -405,13 +420,15 @@ body {
     }
 
     .orbit-animation {
-            position: static;
-        flex: none;
-        margin-top: -12rem;
-        margin-bottom: 10rem;
+        position: static;
+        margin-top: -5rem;
+        margin-bottom: 2rem;
         width: 100%;
-        max-width: 400px;
+        max-width: 500px;
         margin-left: auto;
         margin-right: auto;
+        right: 0;
+        z-index: 0;
+        pointer-events: auto;
     }
 }
